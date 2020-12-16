@@ -1,4 +1,9 @@
-import { ADD_TODO, EDIT_TODO, DELETE_TODO, MARK_COMPLETED, SET_TIME } from "../actions/actions";
+import { 
+    ADD_TODO, 
+    EDIT_TODO, 
+    DELETE_TODO, 
+    MARK_COMPLETED, 
+    SET_TIME } from "../actions/actions";
 
 const addTodo = (todo) => {
     return {

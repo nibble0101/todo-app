@@ -1,11 +1,13 @@
 import React from "react";
-import { useSelector } from "react-redux";
-
+import {Header} from "./components/Header";
+import { Main } from "./components/Main";
+import { Footer } from "./components/Footer";
 function App() {
-  const todos = useSelector(state => state);
   return (
     <div className="app">
-       Hello world { todos[0]}
+       <Header />
+       <Main />
+       <Footer />
     </div>
   );
 }
