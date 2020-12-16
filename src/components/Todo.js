@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Todo(props) {
-  const todo = props;
+  const { todo } = props;
   return (
     <section className="todo">
       <p>
@@ -23,7 +23,6 @@ function Todo(props) {
 }
 
 Todo.propTypes = {
-    description: PropTypes.string,
-    title: PropTypes.string
+    todo: PropTypes.object
 }
 export { Todo };

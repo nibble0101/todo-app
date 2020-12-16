@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../action-creators/action-creators";
 
 function CreateTodo() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const dispatch = useDispatch();
 
   const onChangeTitleHandler = (event) => {
     setTitle(event.target.value);
@@ -11,16 +14,24 @@ function CreateTodo() {
   const onChangeDescriptionHandler = (event) => {
     setDescription(event.target.value);
   };
-  const onSubmitFormHandler = (event) => { 
-      event.preventDefault();
-      setTitle("");
-      setDescription("");
-      uuidv4();
-
-  }
+  const onSubmitFormHandler = (event) => {
+    event.preventDefault();
+    const todo = {
+      todoId: uuidv4(),
+      title,
+      description,
+      createdAt: new Date(),
+      startAt: 0,
+      endAt: 0,
+      completed: false,
+    };
+    dispatch(addTodo(todo));
+    setTitle("");
+    setDescription("");
+  };
   return (
     <section>
-      <form onSubmit = {onSubmitFormHandler}>
+      <form onSubmit={onSubmitFormHandler}>
         <div>
           <label htmlFor="todo-title">Todo Title</label>
           <input

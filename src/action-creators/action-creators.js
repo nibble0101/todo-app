@@ -12,11 +12,11 @@ const addTodo = (todo) => {
     }
 }; 
 
-const editTodo = (todoId, newTodo) => {
+const editTodo = (todoId, changes) => {
     return {
         type: EDIT_TODO,
         todoId,
-        newTodo
+        changes
     }
 }
 
