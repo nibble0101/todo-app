@@ -14,6 +14,7 @@ import {
 } from "../utils/reducer-utils";
 
 import { v4 as uuidv4 } from "uuid";
+import  initialState from "../todo.js";
 
 
 /*
@@ -29,19 +30,13 @@ import { v4 as uuidv4 } from "uuid";
 
   }
 */
-const obj = {
-    todoId: uuidv4(),
-    title:"First Todo",
-    description: "This is for testing the app",
-    createdAt: new Date(),
-    startAt: new Date(), 
-    endAt: new Date,
-    completed: false
 
-}
-const initialState = {todos: [obj], lastUpdated: 0 };
+initialState.todos.forEach(todo => {
+    todo.todoId = uuidv4();
+    todo.createdAt = new Date();
+})
 
-const todoReducer = (state = initialState, action) => {
+const todoReducer = (state = JSON.parse(JSON.stringify(initialState,)),  action) => {
       const { type } = action;
       switch(type){
           case ADD_TODO:

@@ -8,9 +8,8 @@
 */
 function addTodoUtil(state, newTodo) {
     const stateClone = {...state};
-    const todos = [...stateClone.todos, newTodo]
-    stateClone.todos = todos;
-    return stateClone;
+    stateClone.todos.push(newTodo)
+    return JSON.parse(JSON.stringify(stateClone));
 }
 
 /** 

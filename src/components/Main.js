@@ -10,8 +10,6 @@ function Main() {
   const createTodoHandler = () => {
     setIsCreatingTodo((todoFlag) => !todoFlag);
   };
-  /*eslint-disable*/
-  console.log(todos);
   return (
     <main className="main">
       <NewTodo createTodoHandler={createTodoHandler} />

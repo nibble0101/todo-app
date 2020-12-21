@@ -25,6 +25,7 @@ function CreateTodo() {
       endAt: 0,
       completed: false,
     };
+    if(!title || !description) return; // Must have title or description
     dispatch(addTodo(todo));
     setTitle("");
     setDescription("");

@@ -17,7 +17,7 @@ function Todo(props) {
         <i className="far fa-check-circle"></i>
         </span>
       </p>
-      <p> {todo.description} </p>
+      <p> {todo.description.slice(0, 100)}... </p>
     </section>
   );
 }
