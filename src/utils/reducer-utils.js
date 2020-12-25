@@ -56,9 +56,9 @@ function markCompletedUtil(state, todoId) {
     const stateClone = {...state};
     const todoIndex = stateClone.todos.findIndex(todo => todo.todoId === todoId);
     if(todoIndex > -1){
-       stateClone.todos[todoIndex].isCompleted = true;
+       stateClone.todos[todoIndex].completed = true;
     }
-    return stateClone; 
+    return JSON.parse(JSON.stringify(stateClone)); 
 }
 
 /** 
