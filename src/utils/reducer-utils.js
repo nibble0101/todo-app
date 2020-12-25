@@ -27,7 +27,7 @@ function editTodoUtil(state, todoId, changes) {
        const updatedTodo = {...state.todos[todoIndex], ...changes};
        stateClone.todos[todoIndex] = updatedTodo;
     }
-    return stateClone;
+    return JSON.parse(JSON.stringify(stateClone));
 }
 
 /** 
@@ -42,7 +42,7 @@ function deleteTodoUtil(state, todoId) {
     if(todoIndex > -1){
        stateClone.todos.splice(todoIndex, 1);
     }
-    return stateClone;
+    return JSON.parse(JSON.stringify(stateClone));
     
 }
 
