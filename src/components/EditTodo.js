@@ -24,6 +24,9 @@ function EditTodo(props) {
   function editDescriptionHandler(event) {
     setEditedDescription(event.target.value);
   }
+  function discardChanges() {
+    props.editTodoHandler()
+  }
   return (
     <div>
       <form onSubmit={submitEditedTodoHandler}>
@@ -44,9 +47,9 @@ function EditTodo(props) {
             onChange={editDescriptionHandler}
           />
         </div>
-
         <input type="submit" value="Submit" />
       </form>
+      <button onClick = { discardChanges }> Discard changes </button>
     </div>
   );
 }

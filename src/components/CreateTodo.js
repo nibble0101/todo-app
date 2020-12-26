@@ -3,8 +3,9 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "../action-creators/action-creators";
 import { PreviewTodo } from "./PreviewTodo";
 import { createNewTodo } from "../utils/create-todo-utils";
+import PropTypes from "prop-types";
 
-function CreateTodo() {
+function CreateTodo(props) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [previewOn, setPreviewOn] = useState(false);
@@ -35,7 +36,7 @@ function CreateTodo() {
   };
   return (
     <section style = {{position: "relative"}}>
-      <form onSubmit={onSubmitFormHandler}>
+      <form onSubmit={onSubmitFormHandler} className = "new-todo">
         <div>
           <label htmlFor="todo-title">Todo Title</label>
           <input
@@ -56,9 +57,14 @@ function CreateTodo() {
           ></textarea>
         </div>
         <div>
+        <div>
           <input type="submit" value="Create Todo" />
+          <button> {previewOn === true ? "Close Preview" : "Open Preview"} </button>
+          <button onClick = { props.createTodoHandler } > Discard changes </button>
         </div>
-        <div><button> {previewOn === true ? "Close Preview" : "Open Preview"} </button></div>
+          
+        </div>
+       
       </form>
       
       {previewOn === true ? (
@@ -73,4 +79,7 @@ function CreateTodo() {
   );
 }
 
+CreateTodo.propTypes = {
+  createTodoHandler: PropTypes.func
+}
 export { CreateTodo };
