@@ -16,23 +16,27 @@ function Todo(props) {
     setEditingTodo((editingTodo) => !editingTodo);
   }
   if (editingTodo === true) {
-    return <EditTodo editTodoHandler = { editTodoHandler} todo = { todo } />;
+    return <EditTodo editTodoHandler={editTodoHandler} todo={todo} />;
   }
   return (
     <section className="todo">
-      <p>
-        <span> {todo.title} </span>
-        <span onClick={deleteTodoHandler}>
-          <i className="far fa-trash-alt"></i>
-        </span>
-        <span onClick={editTodoHandler}>
-          <i className="far fa-edit"></i>
-        </span>
-        <span>
-          <i className="far fa-check-circle"></i>
-        </span>
+      <p className="todo-heading">
+        <div>
+          <span> {todo.title} </span>
+        </div>
+        <div>
+          <button onClick={deleteTodoHandler} className="button">
+            <i className="far fa-trash-alt"></i>
+          </button>
+          <button onClick={editTodoHandler} className="button">
+            <i className="far fa-edit"></i>
+          </button>
+          <button className="button">
+            <i className="far fa-check-circle"></i>
+          </button>
+        </div>
       </p>
-      <p> {todo.description} </p>
+      <p className="todo-description"> {todo.description} </p>
     </section>
   );
 }

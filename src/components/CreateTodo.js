@@ -4,6 +4,7 @@ import { addTodo } from "../action-creators/action-creators";
 import { PreviewTodo } from "./PreviewTodo";
 import { createNewTodo } from "../utils/create-todo-utils";
 import PropTypes from "prop-types";
+import "../styles/CreateTodo.css";
 
 function CreateTodo(props) {
   const [title, setTitle] = useState("");
@@ -19,10 +20,12 @@ function CreateTodo(props) {
   };
   const previewHandle = () => {
     setPreviewOn((previewOn) => !previewOn);
+    const body = document.querySelector("body");
+    body.classList.toggle("disable-scroll");
   };
   const onSubmitFormHandler = (event) => {
     event.preventDefault();
-    setPreviewOn(previewOn => !previewOn);
+    previewHandle();
   }
   const createNewTodoHandler = () => {
     if (title === "" || description === ""){
@@ -35,9 +38,9 @@ function CreateTodo(props) {
     previewHandle();
   };
   return (
-    <section style = {{position: "relative"}}>
-      <form onSubmit={onSubmitFormHandler} className = "new-todo">
-        <div>
+    <section>
+      <form className = "create-todo">
+        <div className = "wrapper-with-top-margin">
           <label htmlFor="todo-title">Todo Title</label>
           <input
             id="todo-title"
@@ -45,27 +48,25 @@ function CreateTodo(props) {
             onChange={onChangeTitleHandler}
             name="todoTitle"
             type="text"
+            className="create-todo__title-input block-user-input"
           />
         </div>
-        <div>
+        <div className = "wrapper-with-top-margin">
           <label htmlFor="todo-description">Todo Description</label>
           <textarea
             id="todo-description"
             value={description}
             onChange={onChangeDescriptionHandler}
             name="todoDescription"
+            className="create-todo__description-input block-user-input"
           ></textarea>
         </div>
-        <div>
-        <div>
-          <input type="submit" value="Create Todo" />
-          <button> {previewOn === true ? "Close Preview" : "Open Preview"} </button>
-          <button onClick = { props.createTodoHandler } > Discard changes </button>
-        </div>
-          
-        </div>
-       
       </form>
+      <div className = "wrapper-with-top-margin">
+          <button onClick = { onSubmitFormHandler } className = "button"> Create Todo </button>
+          <button onClick = { previewHandle } className = "button"> Open Preview </button>
+          <button onClick = { props.createTodoHandler } className = "button"> Discard changes </button>
+        </div>
       
       {previewOn === true ? (
         <PreviewTodo

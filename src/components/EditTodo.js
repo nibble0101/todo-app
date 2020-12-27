@@ -29,7 +29,7 @@ function EditTodo(props) {
   }
   return (
     <div>
-      <form onSubmit={submitEditedTodoHandler}>
+      <form>
         <div>
           <label htmlFor="edit-todo-header">Edit Todo Header</label>
           <input
@@ -47,9 +47,12 @@ function EditTodo(props) {
             onChange={editDescriptionHandler}
           />
         </div>
-        <input type="submit" value="Submit" />
       </form>
-      <button onClick = { discardChanges }> Discard changes </button>
+      <div className = "wrapper-with-top-margin">
+         <button className = "button" onClick={submitEditedTodoHandler}> Submit </button>
+         <button onClick = { discardChanges } className = "button"> Discard changes </button>
+      </div>
+     
     </div>
   );
 }

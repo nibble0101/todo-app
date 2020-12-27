@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function NewTodo(props) {
   return (
     <p>
-      <button onClick={props.createTodoHandler}>Create New Todo</button>
+      <button onClick={props.createTodoHandler} className = "button">Create New Todo</button>
     </p>
   );
 }
