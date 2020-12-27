@@ -25,34 +25,43 @@ function EditTodo(props) {
     setEditedDescription(event.target.value);
   }
   function discardChanges() {
-    props.editTodoHandler()
+    props.editTodoHandler();
   }
   return (
     <div>
-      <form>
-        <div>
-          <label htmlFor="edit-todo-header">Edit Todo Header</label>
+      <form className="edit-todo">
+        <div className = "wrapper-with-top-margin">
+          <label htmlFor="edit-todo-header">
+            Edit Todo Header
+          </label>
           <input
             type="text"
             id="edit-todo-header"
             value={editedTitle}
             onChange={editTitleHandler}
+            className="edit-todo__header-input block-user-input"
           />
         </div>
-        <div>
-          <label htmlFor="edit-todo-description">Edit Todo Description</label>
+        <div className = "wrapper-with-top-margin">
+          <label htmlFor="edit-todo-description">
+            Edit Todo Description
+          </label>
           <textarea
             id="edit-todo-description"
             value={editedDescription}
             onChange={editDescriptionHandler}
+            className="edit-todo__description-input block-user-input"
           />
         </div>
       </form>
-      <div className = "wrapper-with-top-margin">
-         <button className = "button" onClick={submitEditedTodoHandler}> Submit </button>
-         <button onClick = { discardChanges } className = "button"> Discard changes </button>
+      <div className="wrapper-with-top-margin">
+        <button className="button" onClick={submitEditedTodoHandler}>
+          Submit
+        </button>
+        <button onClick={discardChanges} className="button">
+          Discard changes
+        </button>
       </div>
-     
     </div>
   );
 }

@@ -7,6 +7,9 @@ body{
 .disable-scroll{
     overflow: hidden;
 }
+.main{
+  min-height: 90vh;
+}
 .button {
     display:inline-block;
     padding:0.2em 1.45em;
@@ -29,19 +32,33 @@ body{
     box-sizing: border-box;
     width: 100%;
     padding: 0.5em 1em;
+    background-color: inherit;
+    color: inherit;
+    outline: 1px solid #CCCCCC;
+    border: none;
+    margin-top: 0.5em;
   }
-  
+  .block-user-input:focus{
+    outline-color: #7a7a7a;
+    background-color: inherit;
+  }
   .todo-heading{
       display: flex;
       justify-content: space-between;
   
   }
-  .create-todo__description-input {
+  .create-todo__description-input, 
+  .edit-todo__description-input {
     height: 200px;
+    resize: vertical; 
   }
   
   .wrapper-with-top-margin {
     margin-top: 1em;
   }
   
+  .footer{
+    text-align: center;
+    color: #7a7a7a;
+  }
   

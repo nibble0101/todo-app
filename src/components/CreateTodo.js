@@ -49,6 +49,7 @@ function CreateTodo(props) {
             name="todoTitle"
             type="text"
             className="create-todo__title-input block-user-input"
+            placeholder="Enter Todo title"
           />
         </div>
         <div className = "wrapper-with-top-margin">
@@ -59,6 +60,7 @@ function CreateTodo(props) {
             onChange={onChangeDescriptionHandler}
             name="todoDescription"
             className="create-todo__description-input block-user-input"
+            placeholder="Enter Todo description. Markdown supported"
           ></textarea>
         </div>
       </form>
