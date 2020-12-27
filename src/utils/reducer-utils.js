@@ -2,8 +2,8 @@
 
 /** 
 * Adds a new todo object to list of todos
-* @param {object} App state
-* @param {object}  New todo
+* @param {object}   App state
+* @param {object}   New todo
 * @returns {object} New state
 */
 function addTodoUtil(state, newTodo) {
@@ -14,9 +14,9 @@ function addTodoUtil(state, newTodo) {
 
 /** 
 * Edits an existing todo
-* @param {object} App state
-* @param {string}  Todo id
-* @param {object} State object containing changes
+* @param {object}   App state
+* @param {string}   Todo id
+* @param {object}   Todo object containing changes
 * @returns {object} New state 
 */
 
@@ -32,8 +32,8 @@ function editTodoUtil(state, todoId, changes) {
 
 /** 
 * Delete an existing todo
-* @param {object} App state
-* @param {string}  Todo id
+* @param {object}   App state
+* @param {string}   Todo id
 * @returns {object} New state
 */
 function deleteTodoUtil(state, todoId) {
@@ -48,8 +48,8 @@ function deleteTodoUtil(state, todoId) {
 
 /** 
 * Mark an existing todo completed
-* @param {object} App state
-* @param {string}  Todo id
+* @param {object}   App state
+* @param {string}   Todo id
 * @returns {object} New state
 */
 function markCompletedUtil(state, todoId) {
@@ -63,8 +63,8 @@ function markCompletedUtil(state, todoId) {
 
 /** 
 * Reset time of an existing todo
-* @param {object} App state
-* @param {string}  Todo id
+* @param {object}   App state
+* @param {string}   Todo id
 * @param {integer}  Time in ms
 * @returns {object} New state
 */
