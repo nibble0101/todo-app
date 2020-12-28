@@ -1,34 +1,41 @@
 import React from "react";
+import { getPreviewMessage } from "../utils/preview-utils";
 import PropTypes from "prop-types";
 import "../styles/PreviewTodo.css";
 
-// For styling preview if Todo is empty
-const style = {
+
+// For styling preview if Todo's title or description is an empty string.
+
+const invalidTodoStyle = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  color: "brown"
+  color: "brown",
 };
 
 function PreviewTodo(props) {
+  const { title, description, canSubmit } = getPreviewMessage(
+    props.title,
+    props.description
+  );
   return (
     <div className="preview-wrapper">
       <div className="preview-overlay"></div>
       <div className="preview">
-        <h1 className="preview__title"> {props.title} </h1>
+        <h1 className="preview__title"> {title} </h1>
         <p
           className="preview__description"
-          style={props.description === "" ? style : null}
+          style={canSubmit === false ? invalidTodoStyle : null}
         >
-          {props.description === ""
-            ? "You cannot submit an empty todo"
-            : props.description}
+          {canSubmit === false
+            ? "You cannot submit Todo with an empty title or description"
+            : description}
         </p>
         <p>
-          <button onClick={props.createNewTodoHandler} className="button">
+          <button onClick={props.submitTodo} className="button">
             Submit
           </button>
-          <button onClick={props.previewHandle} className="button">
+          <button onClick={props.closePreview} className="button">
             Edit
           </button>
         </p>
@@ -40,7 +47,7 @@ function PreviewTodo(props) {
 PreviewTodo.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  previewHandle: PropTypes.func,
-  createNewTodoHandler: PropTypes.func,
+  closePreview: PropTypes.func,
+  submitTodo: PropTypes.func,
 };
 export { PreviewTodo };

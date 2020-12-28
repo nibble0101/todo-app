@@ -73,8 +73,8 @@ function CreateTodo(props) {
         <PreviewTodo
           title={title}
           description={description}
-          previewHandle={previewHandle}
-          createNewTodoHandler = { createNewTodoHandler }
+          closePreview={previewHandle}
+          submitTodo = { createNewTodoHandler }
         />
       ) : null}
     </section>

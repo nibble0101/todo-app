@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { editTodo } from "../action-creators/action-creators";
+import { PreviewTodo } from "./PreviewTodo";
 
 function EditTodo(props) {
   const dispatch = useDispatch();
@@ -9,7 +10,8 @@ function EditTodo(props) {
   const [editedDescription, setEditedDescription] = useState(
     props.todo.description
   );
-  function submitEditedTodoHandler(event) {
+  const [previewOn, setPreviewOn] = useState(false);
+  function submitEditedTodo(event) {
     event.preventDefault();
     const changes = {
       title: editedTitle,
@@ -18,11 +20,14 @@ function EditTodo(props) {
     dispatch(editTodo(props.todo.todoId, changes));
     props.editTodoHandler();
   }
-  function editTitleHandler(event) {
+  function editTitle(event) {
     setEditedTitle(event.target.value);
   }
-  function editDescriptionHandler(event) {
+  function editDescription(event) {
     setEditedDescription(event.target.value);
+  }
+  function displayPreview() {
+    setPreviewOn((previewFlag) => !previewFlag);
   }
   function discardChanges() {
     props.editTodoHandler();
@@ -30,38 +35,42 @@ function EditTodo(props) {
   return (
     <div>
       <form className="edit-todo">
-        <div className = "wrapper-with-top-margin">
-          <label htmlFor="edit-todo-header">
-            Edit Todo Header
-          </label>
+        <div className="wrapper-with-top-margin">
+          <label htmlFor="edit-todo-header">Edit Todo Header</label>
           <input
             type="text"
             id="edit-todo-header"
             value={editedTitle}
-            onChange={editTitleHandler}
+            onChange={editTitle}
             className="edit-todo__header-input block-user-input"
           />
         </div>
-        <div className = "wrapper-with-top-margin">
-          <label htmlFor="edit-todo-description">
-            Edit Todo Description
-          </label>
+        <div className="wrapper-with-top-margin">
+          <label htmlFor="edit-todo-description">Edit Todo Description</label>
           <textarea
             id="edit-todo-description"
             value={editedDescription}
-            onChange={editDescriptionHandler}
+            onChange={editDescription}
             className="edit-todo__description-input block-user-input"
           />
         </div>
       </form>
       <div className="wrapper-with-top-margin">
-        <button className="button" onClick={submitEditedTodoHandler}>
+        <button className="button" onClick={displayPreview}>
           Submit
         </button>
         <button onClick={discardChanges} className="button">
           Discard changes
         </button>
       </div>
+      {previewOn === true ? (
+        <PreviewTodo
+          title={editedTitle}
+          description={editedDescription}
+          submitTodo={submitEditedTodo}
+          closePreview={discardChanges}
+        />
+      ) : null}
     </div>
   );
 }
