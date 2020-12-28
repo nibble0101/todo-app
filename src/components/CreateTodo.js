@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "../action-creators/action-creators";
 import { PreviewTodo } from "./PreviewTodo";
 import { createNewTodo } from "../utils/create-todo-utils";
+import { TextAreaMenu } from "./TextAreaMenu";
 import PropTypes from "prop-types";
 
 function CreateTodo(props) {
@@ -53,6 +54,7 @@ function CreateTodo(props) {
         </div>
         <div className = "wrapper-with-top-margin">
           <label htmlFor="todo-description">Todo Description</label>
+          <TextAreaMenu />
           <textarea
             id="todo-description"
             value={description}
