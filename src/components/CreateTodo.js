@@ -4,7 +4,6 @@ import { addTodo } from "../action-creators/action-creators";
 import { PreviewTodo } from "./PreviewTodo";
 import { createNewTodo } from "../utils/create-todo-utils";
 import PropTypes from "prop-types";
-import "../styles/CreateTodo.css";
 
 function CreateTodo(props) {
   const [title, setTitle] = useState("");
@@ -67,7 +66,7 @@ function CreateTodo(props) {
       <div className = "wrapper-with-top-margin">
           <button onClick = { onSubmitFormHandler } className = "button"> Create Todo </button>
           <button onClick = { previewHandle } className = "button"> Open Preview </button>
-          <button onClick = { props.createTodoHandler } className = "button"> Discard changes </button>
+          <button onClick = { props.createTodoHandler } className = "button"> Discard Todo </button>
         </div>
       
       {previewOn === true ? (

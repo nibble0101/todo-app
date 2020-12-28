@@ -1,103 +1,119 @@
-:root{
+:root {
   --pseudo-element-width: 20px;
+  --z-index-button: 996;
+  --z-index-tooltip-wrapper: 996;
+  --z-index-tooltip-text: 997;
+  --z-index-preview-overlay: 998;
+  --z-index-preview: 999;
+  
+
+
 }
 
-body{
-    background-color: #131417;
-    background-color: #2a2a2e;
-    color: white;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  
+body {
+  background-color: #2a2a2e;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.disable-scroll{
-    overflow: hidden;
+.disable-scroll {
+  overflow: hidden;
 }
-.main{
-  min-height: 90vh;
+.main {
+  width: 50%;
+  margin: auto;
+  min-height: 90vh; /*Ensures footer is always at the bottom*/
 }
 .button {
-    display:inline-block;
-    padding:0.2em 1.45em;
-    margin:0.2em;
-    border:0.15em solid #CCCCCC;
-    box-sizing: border-box;
-    text-decoration:none;
-    font-family:'Segoe UI','Roboto',sans-serif;
-    font-weight:400;
-    color: inherit;
-    background-color: black;
-    min-height: 25px;
-    text-align:center;
-   }
-   .button:hover{
-       border-color:#7a7a7a;
-   }
-   .block-user-input {
-    display: block;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0.5em 1em;
-    background-color: inherit;
-    color: inherit;
-    outline: 1px solid #CCCCCC;
-    border: none;
-    margin-top: 0.5em;
-  }
-  .block-user-input:focus{
-    outline-color: #7a7a7a;
-    background-color: inherit;
-  }
-  .todo-heading{
-      display: flex;
-      justify-content: space-between;
-  
-  }
-  .create-todo__description-input, 
-  .edit-todo__description-input {
-    height: 200px;
-    resize: vertical; 
-  }
-  
-  .wrapper-with-top-margin {
-    margin-top: 1em;
-  }
+  display: inline-block;
+  padding: 0.2em 1.45em;
+  margin: 0.2em;
+  border: 0.15em solid #cccccc;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  font-weight: 400;
+  color: inherit;
+  background-color: black;
+  min-height: 25px;
+  text-align: center;
+}
+.button:hover {
+  border-color: #7a7a7a;
+}
+.block-user-input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5em 1em;
+  background-color: inherit;
+  color: inherit;
+  outline: 1px solid #cccccc;
+  border: none;
+  margin-top: 0.5em;
+}
+.block-user-input:focus {
+  outline-color: #7a7a7a;
+  background-color: inherit;
+}
+.todo-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.todo-heading__menu{
+  white-space: nowrap;
+}
+.create-todo__description-input,
+.edit-todo__description-input {
+  height: 200px;
+  resize: vertical;
+}
 
+.wrapper-with-top-margin {
+  margin-top: 1em;
+}
 
-  /* Styling Tooltip */
+/* Styling Tooltip */
 
-  .tool-tip-wrapper{
-    position: relative;
-  }
-  .tool-tip-wrapper__text{
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    padding: 10px 15px;
-    border-radius: 6px;
-    display: inline-block;
-    transform: translate(-50%, calc(100% + 10px) );
-    background-color: black;
-    width: auto;
-    white-space: nowrap;
-    visibility: hidden;
-  }
-  .tool-tip-wrapper__text::after{
-    content: " ";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border-width: var(--pseudo-with);
-    margin-left: calc(-1 * var(--pseudo-with));
-    border-style: solid;
-    border-color: transparent transparent black transparent;
-  
-  }
-  .tool-tip-wrapper:hover .tool-tip-wrapper__text{
-    visibility: visible;
-  }
-  
-  .footer{
-    text-align: center;
-    color: #7a7a7a;
-  }
-  
+.tooltip-wrapper {
+  position: relative;
+}
+.tooltip-wrapper__text {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  padding: 10px 15px;
+  border-radius: 6px;
+  display: inline-block;
+  transform: translate(-50%, calc(100% + 10px));
+  background-color: black;
+  width: auto;
+  white-space: nowrap;
+  visibility: hidden;
+  z-index: var(--z-index-tooltip-text);
+}
+.tooltip-wrapper__text::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: var(--pseudo-with);
+  margin-left: calc(-1 * var(--pseudo-with));
+  border-style: solid;
+  border-color: transparent transparent black transparent;
+}
+.tooltip-wrapper:hover .tooltip-wrapper__text {
+  visibility: visible;
+}
+
+/* Styling footer */
+
+.footer {
+  text-align: center;
+  color: #7a7a7a;
+}
+.footer__link {
+  color: inherit;
+}

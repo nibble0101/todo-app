@@ -3,11 +3,7 @@ import PropTypes from "prop-types";
 
 function Tooltip(props) {
   const { tooltipText } = props;
-  return (
-    <span className="tool-tip-wrapper">
-      <span className="tool-tip-wrapper__text"> {tooltipText} </span>
-    </span>
-  );
+  return <span className="tooltip-wrapper__text"> {tooltipText} </span>;
 }
 
 Tooltip.propTypes = {
