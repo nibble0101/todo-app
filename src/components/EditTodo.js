@@ -19,6 +19,8 @@ function EditTodo(props) {
     };
     dispatch(editTodo(props.todo.todoId, changes));
     props.editTodoHandler();
+    const body = document.querySelector("body");
+    body.classList.toggle("disable-scroll");
   }
   function editTitle(event) {
     setEditedTitle(event.target.value);
@@ -28,6 +30,8 @@ function EditTodo(props) {
   }
   function displayPreview() {
     setPreviewOn((previewFlag) => !previewFlag);
+    const body = document.querySelector("body");
+    body.classList.toggle("disable-scroll");
   }
   function discardChanges() {
     props.editTodoHandler();
