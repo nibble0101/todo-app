@@ -21,6 +21,8 @@ function Todo(props) {
   }
   function toggleAboutToDeleteTodoFlag() {
     setAboutToDeleteTodo((deleteTodoFlag) => !deleteTodoFlag);
+    const body = document.querySelector("body");
+    body.classList.toggle("disable-scroll");
   }
   if (editingTodo === true) {
     return <EditTodo editTodoHandler={editTodoHandler} todo={todo} />;

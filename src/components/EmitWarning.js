@@ -7,8 +7,11 @@ function EmitWarning(props) {
   return (
     <div className="warning">
       <div className="warning__overlay"></div>
-      <div className = "warning-wrapper">
-        <p className="warning__text"> {warningText} </p>
+      <div className="warning-wrapper">
+        <p className="warning__text">
+          <i className="fas fa-exclamation-triangle"></i>{" "}
+          {warningText}
+        </p>
         <p className="warning__controls">
           <button className="button" onClick={deleteTodoHandler}>
             Yes Proceed
