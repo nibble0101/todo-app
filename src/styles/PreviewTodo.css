@@ -10,6 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 998;
 }
 .preview{
     background-color: black;
@@ -22,6 +23,7 @@
     min-height: 50vh;
     min-width: 50vw;
     box-shadow: 1px 2px 2px black;
+    z-index: 999;
 }
 .preview__description{
     min-height: 250px; 
