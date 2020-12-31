@@ -11,11 +11,14 @@ function EditTodo(props) {
   const [editedDescription, setEditedDescription] = useState(
     props.todo.description
   );
-  const [previewOn, setPreviewOn] = useState(false);
+  const [isPreviewOn, setIsPreviewOn] = useState(false);
   function submitEditedTodo(event) {
     event.preventDefault();
-    if(editTitle === "" || editDescription === ""){
-      return // Todo must have both Title and Description
+    if (editedTitle === "") {
+      return;
+    }
+    if (editedDescription === "") {
+      return; // Todo must have both Title and Description
     }
     const changes = {
       title: editedTitle,
@@ -31,16 +34,11 @@ function EditTodo(props) {
   function editDescription(event) {
     setEditedDescription(event.target.value);
   }
-  function displayPreview() {
-    setPreviewOn((previewFlag) => !previewFlag);
+  function toggleIsPreviewOn() {
+    setIsPreviewOn((previewFlag) => !previewFlag);
     toggleBodyElementScroll();
   }
-  function discardChanges() {
-    props.editTodoHandler();
-    if (previewOn === true) {
-      toggleBodyElementScroll();
-    }
-  }
+  
   return (
     <div>
       <form className="edit-todo">
@@ -65,19 +63,19 @@ function EditTodo(props) {
         </div>
       </form>
       <div className="wrapper-with-top-margin">
-        <button className="button" onClick={displayPreview}>
+        <button className="button" onClick={toggleIsPreviewOn}>
           Submit
         </button>
-        <button onClick={discardChanges} className="button">
+        <button onClick={props.editTodoHandler} className="button">
           Discard changes
         </button>
       </div>
-      {previewOn === true ? (
+      {isPreviewOn === true ? (
         <PreviewTodo
           title={editedTitle}
           description={editedDescription}
           submitTodo={submitEditedTodo}
-          closePreview={discardChanges}
+          closePreview={toggleIsPreviewOn}
         />
       ) : null}
     </div>

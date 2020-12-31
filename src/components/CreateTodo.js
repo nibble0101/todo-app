@@ -28,8 +28,11 @@ function CreateTodo(props) {
     previewHandle();
   };
   const createNewTodoHandler = () => {
-    if (title === "" || description === "") {
-      return; // Todo must have Title and Description
+    if (title === "") {
+      return;
+    }
+    if (description === "") {
+      return; // Todo must have both Title and Description
     }
     const newTodo = createNewTodo(title, description, 0);
     dispatch(addTodo(newTodo));
