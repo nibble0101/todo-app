@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { addTodo } from "../action-creators/action-creators";
 import { PreviewTodo } from "./PreviewTodo";
 import { createNewTodo } from "../utils/create-todo-utils";
+import { toggleBodyElementScroll } from "../utils/css-styles-utils";
 import { TextAreaMenu } from "./TextAreaMenu";
 import PropTypes from "prop-types";
 
@@ -20,17 +21,16 @@ function CreateTodo(props) {
   };
   const previewHandle = () => {
     setPreviewOn((previewOn) => !previewOn);
-    const body = document.querySelector("body");
-    body.classList.toggle("disable-scroll");
+    toggleBodyElementScroll();
   };
   const onSubmitFormHandler = (event) => {
     event.preventDefault();
     previewHandle();
-  }
+  };
   const createNewTodoHandler = () => {
-    if (title === "" || description === ""){
+    if (title === "" || description === "") {
       return; // Must have title or description
-    } 
+    }
     const newTodo = createNewTodo(title, description, 0);
     dispatch(addTodo(newTodo));
     setTitle("");
@@ -39,8 +39,8 @@ function CreateTodo(props) {
   };
   return (
     <section>
-      <form className = "create-todo">
-        <div className = "wrapper-with-top-margin">
+      <form className="create-todo">
+        <div className="wrapper-with-top-margin">
           <label htmlFor="todo-title">Todo Title</label>
           <input
             id="todo-title"
@@ -52,7 +52,7 @@ function CreateTodo(props) {
             placeholder="Enter Todo title"
           />
         </div>
-        <div className = "wrapper-with-top-margin">
+        <div className="wrapper-with-top-margin">
           <label htmlFor="todo-description">Todo Description</label>
           <TextAreaMenu />
           <textarea
@@ -65,18 +65,24 @@ function CreateTodo(props) {
           ></textarea>
         </div>
       </form>
-      <div className = "wrapper-with-top-margin">
-          <button onClick = { onSubmitFormHandler } className = "button"> Create Todo </button>
-          <button onClick = { previewHandle } className = "button"> Open Preview </button>
-          <button onClick = { props.createTodoHandler } className = "button"> Discard Todo </button>
-        </div>
-      
+      <div className="wrapper-with-top-margin">
+        <button onClick={onSubmitFormHandler} className="button">
+          Create Todo
+        </button>
+        <button onClick={previewHandle} className="button">
+          Open Preview
+        </button>
+        <button onClick={props.createTodoHandler} className="button">
+          Discard Todo
+        </button>
+      </div>
+
       {previewOn === true ? (
         <PreviewTodo
           title={title}
           description={description}
           closePreview={previewHandle}
-          submitTodo = { createNewTodoHandler }
+          submitTodo={createNewTodoHandler}
         />
       ) : null}
     </section>
@@ -84,6 +90,6 @@ function CreateTodo(props) {
 }
 
 CreateTodo.propTypes = {
-  createTodoHandler: PropTypes.func
-}
+  createTodoHandler: PropTypes.func,
+};
 export { CreateTodo };

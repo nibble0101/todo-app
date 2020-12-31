@@ -3,8 +3,8 @@ import { getPreviewMessage } from "../utils/preview-utils";
 import PropTypes from "prop-types";
 import "../styles/PreviewTodo.css";
 import {
-  scrollTop,
-  windowPlusScrollBarHeight,
+  getWindowScrollFromTop,
+  getWindowPlusScrollBarHeight
 } from "../utils/css-styles-utils";
 // For styling preview if Todo's title or description is an empty string.
 
@@ -24,11 +24,11 @@ function PreviewTodo(props) {
     <div className="preview-wrapper">
       <div
         className="preview-overlay"
-        style={{ top: `${scrollTop()}px` }}
+        style={{ top: `${getWindowScrollFromTop()}px` }}
       ></div>
       <div
         className="preview"
-        style={{ top: `${scrollTop() + windowPlusScrollBarHeight() / 2}px` }}
+        style={{ top: `${getWindowScrollFromTop() + getWindowPlusScrollBarHeight() / 2}px` }}
       >
         <h1 className="preview__title"> {title} </h1>
         <p

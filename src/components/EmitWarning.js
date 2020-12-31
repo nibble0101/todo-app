@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import "../styles/EmitWarning.css";
 import {
-  scrollTop,
-  windowPlusScrollBarHeight,
+  getWindowScrollFromTop,
+  getWindowPlusScrollBarHeight,
 } from "../utils/css-styles-utils";
 
 function EmitWarning(props) {
@@ -13,11 +13,11 @@ function EmitWarning(props) {
     <div className="warning">
       <div
         className="warning__overlay"
-        style={{ top: `${scrollTop()}px` }}
+        style={{ top: `${getWindowScrollFromTop()}px` }}
       ></div>
       <div
         className="warning-wrapper"
-        style={{ top: `${scrollTop() + windowPlusScrollBarHeight() / 2}px` }}
+        style={{ top: `${getWindowScrollFromTop() + getWindowPlusScrollBarHeight() / 2}px` }}
       >
         <p className="warning__text">
           <i className="fas fa-exclamation-triangle"></i> {warningText}

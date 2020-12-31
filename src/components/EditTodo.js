@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import { editTodo } from "../action-creators/action-creators";
+import { toggleBodyElementScroll } from "../utils/css-styles-utils";
 import { PreviewTodo } from "./PreviewTodo";
 
 function EditTodo(props) {
@@ -19,8 +20,7 @@ function EditTodo(props) {
     };
     dispatch(editTodo(props.todo.todoId, changes));
     props.editTodoHandler();
-    const body = document.querySelector("body");
-    body.classList.toggle("disable-scroll");
+    toggleBodyElementScroll();
   }
   function editTitle(event) {
     setEditedTitle(event.target.value);
@@ -30,14 +30,12 @@ function EditTodo(props) {
   }
   function displayPreview() {
     setPreviewOn((previewFlag) => !previewFlag);
-    const body = document.querySelector("body");
-    body.classList.toggle("disable-scroll");
+    toggleBodyElementScroll();
   }
   function discardChanges() {
     props.editTodoHandler();
     if (previewOn === true) {
-      const body = document.querySelector("body");
-      body.classList.toggle("disable-scroll");
+      toggleBodyElementScroll();
     }
   }
   return (

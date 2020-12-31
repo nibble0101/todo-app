@@ -1,4 +1,4 @@
-function scrollTop() {
+function getWindowScrollFromTop() {
   if (window.pageYOffset !== undefined) {
     return window.pageYOffset;
   }
@@ -6,10 +6,12 @@ function scrollTop() {
     .scrollTop;
 }
 
-function windowPlusScrollBarHeight() {
-    return window.innerHeight;
+function getWindowPlusScrollBarHeight() {
+  return window.innerHeight;
 }
 
-
-export { scrollTop, windowPlusScrollBarHeight};
-
+function toggleBodyElementScroll() {
+  const body = document.querySelector("body");
+  body.classList.toggle("disable-scroll");
+}
+export { getWindowScrollFromTop, getWindowPlusScrollBarHeight, toggleBodyElementScroll };
