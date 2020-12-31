@@ -14,6 +14,9 @@ function EditTodo(props) {
   const [previewOn, setPreviewOn] = useState(false);
   function submitEditedTodo(event) {
     event.preventDefault();
+    if(editTitle === "" || editDescription === ""){
+      return // Todo must have both Title and Description
+    }
     const changes = {
       title: editedTitle,
       description: editedDescription,

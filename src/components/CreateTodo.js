@@ -29,7 +29,7 @@ function CreateTodo(props) {
   };
   const createNewTodoHandler = () => {
     if (title === "" || description === "") {
-      return; // Must have title or description
+      return; // Todo must have Title and Description
     }
     const newTodo = createNewTodo(title, description, 0);
     dispatch(addTodo(newTodo));
