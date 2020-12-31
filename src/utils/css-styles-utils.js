@@ -10,8 +10,6 @@ function windowPlusScrollBarHeight() {
     return window.innerHeight;
 }
 
-function windowMinusScrollBarHeight() {
-   return document.documentElement.clientHeight;
-}
-export { scrollTop, windowPlusScrollBarHeight, windowMinusScrollBarHeight };
+
+export { scrollTop, windowPlusScrollBarHeight};
 

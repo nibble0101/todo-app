@@ -35,6 +35,10 @@ function EditTodo(props) {
   }
   function discardChanges() {
     props.editTodoHandler();
+    if (previewOn === true) {
+      const body = document.querySelector("body");
+      body.classList.toggle("disable-scroll");
+    }
   }
   return (
     <div>
