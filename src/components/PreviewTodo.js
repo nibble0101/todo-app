@@ -2,8 +2,10 @@ import React from "react";
 import { getPreviewMessage } from "../utils/preview-utils";
 import PropTypes from "prop-types";
 import "../styles/PreviewTodo.css";
-
-
+import {
+  scrollTop,
+  windowPlusScrollBarHeight,
+} from "../utils/css-styles-utils";
 // For styling preview if Todo's title or description is an empty string.
 
 const invalidTodoStyle = {
@@ -20,8 +22,14 @@ function PreviewTodo(props) {
   );
   return (
     <div className="preview-wrapper">
-      <div className="preview-overlay"></div>
-      <div className="preview">
+      <div
+        className="preview-overlay"
+        style={{ top: `${scrollTop()}px` }}
+      ></div>
+      <div
+        className="preview"
+        style={{ top: `${scrollTop() + windowPlusScrollBarHeight() / 2}px` }}
+      >
         <h1 className="preview__title"> {title} </h1>
         <p
           className="preview__description"
