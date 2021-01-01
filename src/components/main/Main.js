@@ -3,7 +3,7 @@ import { Todo } from "./Todo";
 import { CreateTodo } from "./CreateTodo";
 import { NewTodo } from "./NewTodo";
 import { useSelector } from "react-redux";
-import "../styles/Main.css";
+import "../../styles/Main.css";
 
 function Main() {
   const todos = useSelector((state) => state.todos);

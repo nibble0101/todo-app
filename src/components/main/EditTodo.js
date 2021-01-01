@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { editTodo } from "../action-creators/action-creators";
-import { toggleBodyElementScroll } from "../utils/css-styles-utils";
+import { editTodo } from "../../action-creators/action-creators";
+import { toggleBodyElementScroll } from "../../utils/css-styles-utils";
 import { PreviewTodo } from "./PreviewTodo";
 
 function EditTodo(props) {

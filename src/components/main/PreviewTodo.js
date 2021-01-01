@@ -1,11 +1,11 @@
 import React from "react";
-import { getPreviewMessage } from "../utils/preview-utils";
+import { getPreviewMessage } from "../../utils/preview-utils";
 import PropTypes from "prop-types";
-import "../styles/PreviewTodo.css";
+import "../../styles/PreviewTodo.css";
 import {
   getWindowScrollFromTop,
   getWindowPlusScrollBarHeight
-} from "../utils/css-styles-utils";
+} from "../../utils/css-styles-utils";
 // For styling preview if Todo's title or description is an empty string.
 
 const invalidTodoStyle = {

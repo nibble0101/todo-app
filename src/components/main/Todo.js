@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { deleteTodo } from "../action-creators/action-creators";
+import { deleteTodo } from "../../action-creators/action-creators";
 import { EditTodo } from "./EditTodo";
 import { Tooltip } from "./Tooltip";
 import { EmitWarning } from "./EmitWarning";

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "../styles/EmitWarning.css";
+import "../../styles/EmitWarning.css";
 import {
   getWindowScrollFromTop,
   getWindowPlusScrollBarHeight,
-} from "../utils/css-styles-utils";
+} from "../../utils/css-styles-utils";
 
 function EmitWarning(props) {
   const { warningText, toggleAboutToDeleteTodoFlag, deleteTodoHandler } = props;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../action-creators/action-creators";
+import { addTodo } from "../../action-creators/action-creators";
 import { PreviewTodo } from "./PreviewTodo";
-import { createNewTodo } from "../utils/create-todo-utils";
-import { toggleBodyElementScroll } from "../utils/css-styles-utils";
+import { createNewTodo } from "../../utils/create-todo-utils";
+import { toggleBodyElementScroll } from "../../utils/css-styles-utils";
 import { TextAreaMenu } from "./TextAreaMenu";
 import PropTypes from "prop-types";
 
