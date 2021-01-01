@@ -1,4 +1,12 @@
 .main{
     width: 50%;
-    margin: auto;
+    margin-left: 200px;
+}
+.side-bar{
+    width: 200px;
+    position: fixed;
+    left: 0;
+    z-index: 998;
+    height: 50vh;
+    padding: 1px;
 }
