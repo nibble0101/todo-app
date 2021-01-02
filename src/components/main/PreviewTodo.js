@@ -6,8 +6,8 @@ import {
   getWindowScrollFromTop,
   getWindowPlusScrollBarHeight
 } from "../../utils/css-styles-utils";
-// For styling preview if Todo's title or description is an empty string.
 
+// For styling preview if Todo's title or description is an empty string.
 const invalidTodoStyle = {
   display: "flex",
   justifyContent: "center",
