@@ -18,7 +18,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 1;
-    min-height: 50vh;
+    height: 50vh;
+    overflow-y: scroll;
     width: 50vw;
     box-shadow: 1px 2px 20px black;
     z-index: var(--z-index-preview);
@@ -27,5 +28,6 @@
 }
 .preview__description{
     min-height: 250px; 
+    white-space: pre-wrap;
     /* Ensure button controls are at the bottom all the time */
 }
